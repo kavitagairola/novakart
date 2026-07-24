@@ -1,7 +1,10 @@
 import Button from "../ui/Button";
 
 function ProductCard({ product }) {
-  return (
+  const discountPercentage = Math.round(
+  ((product.originalPrice - product.price) / product.originalPrice) * 100
+);
+    return (
     <div className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
       
       {/* Product Image */}
@@ -13,9 +16,9 @@ function ProductCard({ product }) {
         />
 
         {/* Badge */}
-        <span className="absolute left-3 top-3 rounded-full bg-red-500 px-3 py-1 text-xs font-semibold text-white">
-          {product.badge}
-        </span>
+       <span className="absolute left-3 top-3 rounded-full bg-red-500 px-3 py-1 text-xs font-semibold text-white">
+  {discountPercentage}% OFF
+</span>
       </div>
 
       {/* Product Info */}

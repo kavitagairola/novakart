@@ -16,6 +16,7 @@ import camera from "../assets/images/products/camera.jpg";
 import shoes from "../assets/images/products/shoes.jpg";
 import tshirt from "../assets/images/products/tshirt.jpg";
 import hoodie from "../assets/images/products/hoodie.jpg";
+import saleBanner from "../assets/images/banners/sale-banner.jpg";
 
 export const heroData = {
   badge: "🔥 Biggest Sale of the Year",
@@ -130,5 +131,37 @@ export const featuredProducts = [
     rating: 4.5,
     reviews: 270,
     badge: "Sale",
+  },
+];
+export const bannerData = {
+  title: "Mega Sale Up To 50% OFF",
+  subtitle: "Discover amazing deals on electronics, fashion and accessories.",
+  buttonText: "Shop Now",
+  image: saleBanner,
+};
+export const whyChooseUs = [
+  {
+    id: 1,
+    title: "Free Shipping",
+    description: "Free delivery on orders above ₹999.",
+    icon: "🚚",
+  },
+  {
+    id: 2,
+    title: "Secure Payment",
+    description: "100% secure payment gateway.",
+    icon: "🔒",
+  },
+  {
+    id: 3,
+    title: "Easy Returns",
+    description: "7-day hassle-free return policy.",
+    icon: "↩️",
+  },
+  {
+    id: 4,
+    title: "24/7 Support",
+    description: "Customer support anytime you need.",
+    icon: "🎧",
   },
 ];

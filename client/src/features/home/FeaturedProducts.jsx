@@ -8,9 +8,11 @@ function FeaturedProducts() {
     <section className="py-20 bg-gray-50">
       <Container>
         <SectionTitle
-          title="Featured Products"
-          subtitle="Explore our best-selling products"
-        />
+  title="Featured Products"
+  subtitle="Explore our best-selling products"
+  buttonText="View All"
+  buttonLink="/shop"
+/>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {featuredProducts.map((product) => (

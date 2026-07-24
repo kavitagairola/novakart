@@ -1,4 +1,4 @@
-function SectionTitle({ title, subtitle }) {
+function SectionTitle({ title, subtitle, buttonText, buttonLink }) {
   return (
     <div className="mb-12 text-center">
 
