@@ -6,16 +6,18 @@ import { categories } from "../../constants/data";
 
 function CategorySection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="bg-white py-16 lg:py-24">
 
-      <Container>
+      <Container className="max-w-7xl">
 
         <SectionTitle
-          title="Shop By Category"
-          subtitle="Explore our most popular categories"
-        />
+  title="Shop By Category"
+  subtitle="Explore our most popular categories"
+  buttonText="View All"
+  buttonLink="/shop"
+/>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
           {categories.map((category) => (
 

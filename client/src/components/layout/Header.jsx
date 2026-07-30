@@ -2,7 +2,7 @@ import Container from "../ui/Container";
 
 function Header() {
   return (
-    <header className="bg-slate-900 text-white text-sm">
+    <header className="hidden bg-slate-900 py-2 text-sm text-white md:block">
       <Container className="flex h-10 items-center justify-between">
         <p>🚚 Free Shipping on orders above ₹999</p>
 

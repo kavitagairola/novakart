@@ -8,6 +8,7 @@ import furniture from "../assets/images/categories/furniture.jpg";
 import grocery from "../assets/images/categories/grocery.jpg";
 import watches from "../assets/images/categories/watches.jpg";
 import accessories from "../assets/images/categories/accessories.jpg";
+
 import iphone from "../assets/images/products/iphone.jpg";
 import laptop from "../assets/images/products/laptop.jpg";
 import headphones from "../assets/images/products/headphones.jpg";
@@ -21,9 +22,9 @@ import saleBanner from "../assets/images/banners/sale-banner.jpg";
 export const heroData = {
   badge: "🔥 Biggest Sale of the Year",
 
-  title: "Discover The Best",
+title: "Discover The Best",
 
-  highlight: "Shopping Experience",
+highlight: "Shopping Experience",
 
   description:
     "Explore premium electronics, fashion, accessories and much more with exciting offers and fast delivery.",
@@ -95,6 +96,7 @@ export const featuredProducts = [
   {
     id: 1,
     name: "iPhone 16 Pro",
+    category: "Electronics",
     image: iphone,
     price: 129999,
     originalPrice: 139999,
@@ -105,6 +107,7 @@ export const featuredProducts = [
   {
     id: 2,
     name: "Gaming Laptop",
+    category: "Electronics",
     image: laptop,
     price: 89999,
     originalPrice: 99999,
@@ -115,6 +118,7 @@ export const featuredProducts = [
   {
     id: 3,
     name: "Wireless Headphones",
+    category: "Electronics",
     image: headphones,
     price: 7999,
     originalPrice: 9999,
@@ -125,6 +129,7 @@ export const featuredProducts = [
   {
     id: 4,
     name: "Smart Watch",
+    category: "Watches",
     image: smartwatch,
     price: 5999,
     originalPrice: 7999,

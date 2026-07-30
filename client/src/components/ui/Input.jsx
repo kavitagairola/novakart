@@ -1,14 +1,40 @@
 import { cn } from "../../utils/cn";
 
-function Input({ className, ...props }) {
+function Input({
+  label,
+  error,
+  className,
+  ...props
+}) {
   return (
-    <input
-      className={cn(
-        "w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-blue-500",
-        className
+    <div className="w-full">
+      {/* Label */}
+      {label && (
+        <label className="mb-2 block text-sm font-semibold text-gray-700">
+          {label}
+        </label>
       )}
-      {...props}
-    />
+
+      {/* Input */}
+      <input
+        className={cn(
+          "w-full rounded-xl border border-gray-300 bg-white px-4 py-3 transition-all duration-300 outline-none",
+          "placeholder:text-gray-400",
+          "focus:border-blue-500 focus:ring-4 focus:ring-blue-100",
+          error &&
+            "border-red-500 focus:border-red-500 focus:ring-red-100",
+          className
+        )}
+        {...props}
+      />
+
+      {/* Error */}
+      {error && (
+        <p className="mt-2 text-sm font-medium text-red-500">
+          {error}
+        </p>
+      )}
+    </div>
   );
 }
 
