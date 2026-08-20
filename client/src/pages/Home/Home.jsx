@@ -8,9 +8,7 @@ import NovaKartEdit from "../../features/home/NovaKartEdit";
 import ShopTheLook from "../../features/home/ShopTheLook"; // <- New Shop The Look Import
 import ShopByOccasion from "../../features/home/ShopByOccasion";
 import CompactTrustStrip from "../../features/home/CompactTrustStrip";
-import BannerSection from "../../features/home/BannerSection";
-import TrustBar from "../../features/home/TrustBar";
-
+import EditorialTransition from "../../features/home/EditorialTransition";
 function Home() {
   return (
     <MainLayout>
@@ -22,8 +20,8 @@ function Home() {
       <ShopTheLook /> 
       <ShopByOccasion />
       <CompactTrustStrip />
-      <BannerSection />
-      <TrustBar />
+      <EditorialTransition />
+      
     </MainLayout>
   );
 }

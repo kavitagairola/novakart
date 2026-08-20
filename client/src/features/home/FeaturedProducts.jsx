@@ -62,7 +62,7 @@ secondaryImage: coord1Hover,
       rating: 4.8,
       badge: "",
      image: trouser,
-secondaryImage: trouserHover,
+     secondaryImage: trouserHover,
     }
   ];
 
