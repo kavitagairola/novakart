@@ -28,8 +28,8 @@ function FeaturedProducts() {
       originalPrice: 2399,
       rating: 4.8,
       badge: "Bestseller",
-      image: "/src/assets/images/fashion/products/kurtis/product-01-01.jpg",
-      secondaryImage: "/src/assets/images/fashion/products/kurtis/product-01-02.jpg",
+      image: kurti1,
+secondaryImage: kurti1Hover,
     },
     {
       id: 15,
@@ -39,8 +39,8 @@ function FeaturedProducts() {
       originalPrice: 2599,
       rating: 4.7,
       badge: "New",
-      image: "/src/assets/images/fashion/products/kurtis/product-03-01.jpg",
-      secondaryImage: "/src/assets/images/fashion/products/kurtis/product-03-02.jpg",
+      image: kurti3,
+secondaryImage: kurti3Hover,
     },
     {
       id: 19,
@@ -50,8 +50,8 @@ function FeaturedProducts() {
       originalPrice: 4499,
       rating: 4.9,
       badge: "Exclusive",
-      image: "/src/assets/images/fashion/products/coords/product-01-01.jpg",
-      secondaryImage: "/src/assets/images/fashion/products/coords/product-01-02.jpg",
+      image: coord1,
+secondaryImage: coord1Hover,
     },
     {
       id: 37,
@@ -61,8 +61,8 @@ function FeaturedProducts() {
       originalPrice: 3299,
       rating: 4.8,
       badge: "",
-      image: "/src/assets/images/fashion/products/tops/product-06-01.jpg",
-      secondaryImage: "/src/assets/images/fashion/products/tops/product-06-02.jpg",
+     image: trouser,
+secondaryImage: trouserHover,
     }
   ];
 
