@@ -4,6 +4,16 @@ import { Heart, ShoppingBag, ArrowRight } from "lucide-react";
 import Container from "../../components/ui/Container";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
+import kurti1 from "../../assets/images/fashion/products/kurtis/product-01-01.jpg";
+import kurti1Hover from "../../assets/images/fashion/products/kurtis/product-01-02.jpg";
+import kurti3 from "../../assets/images/fashion/products/kurtis/product-03-01.jpg";
+import kurti3Hover from "../../assets/images/fashion/products/kurtis/product-03-02.jpg";
+
+import coord1 from "../../assets/images/fashion/products/coords/product-01-01.jpg";
+import coord1Hover from "../../assets/images/fashion/products/coords/product-01-02.jpg";
+
+import trouser from "../../assets/images/fashion/products/tops/product-06-01.jpg";
+import trouserHover from "../../assets/images/fashion/products/tops/product-06-02.jpg";
 
 function FeaturedProducts() {
   const { addToCart } = useCart();
