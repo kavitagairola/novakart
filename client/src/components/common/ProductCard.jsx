@@ -10,7 +10,7 @@ const {
   wishlistItems,
 } = useWishlist();
 
-console.log("Wishlist:", wishlistItems);
+
 
 const wishlist = isInWishlist(product.id);
   const discountPercentage = Math.round(
@@ -18,10 +18,10 @@ const wishlist = isInWishlist(product.id);
 );
     return (
         <Link to={`/product/${product.id}`} className="block">
-    <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+    <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
       
       {/* Product Image */}
-      <div className="relative flex h-64 items-center justify-center overflow-hidden bg-gray-50 sm:h-72">
+      <div className="relative flex h-64 items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 to-white sm:h-72">
         <img
           src={product.image}
           alt={product.name}
@@ -29,7 +29,7 @@ const wishlist = isInWishlist(product.id);
         />
 
         {/* Badge */}
-       <span className="absolute left-3 top-3 rounded-full bg-red-500 px-3 py-1 text-xs font-semibold text-white">
+       <span className="absolute left-3 top-3 rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
   {discountPercentage}% OFF
 </span>
 
@@ -43,7 +43,7 @@ const wishlist = isInWishlist(product.id);
       addToWishlist(product);
     }
   }}
-  className="absolute right-3 top-3 rounded-full bg-white p-2 shadow-md transition hover:scale-110"
+  className="absolute right-3 top-3 rounded-full bg-white/90 p-2 backdrop-blur transition-all duration-300 hover:scale-110 hover:bg-white shadow-md "
 >
   <Heart
     size={20}
@@ -59,12 +59,12 @@ const wishlist = isInWishlist(product.id);
 
       {/* Product Info */}
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="min-h-[60px] line-clamp-2 text-lg font-semibold leading-7 text-slate-900">
+        <h3 className="min-h-[60px] line-clamp-2 text-base  font-semibold leading-7 text-slate-900">
           {product.name}
         </h3>
 
         <div className="mt-2 flex items-center gap-2">
-          <span className="text-xl font-bold text-blue-600">
+          <span className="text-xl font-bold text-slate-900">
             ₹{product.price.toLocaleString()}
           </span>
 
@@ -89,7 +89,7 @@ const wishlist = isInWishlist(product.id);
     size="sm"
     className="w-full"
   >
-    View Details
+    Quick View
   </Button>
 
 </div>

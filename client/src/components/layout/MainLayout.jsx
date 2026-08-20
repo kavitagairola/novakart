@@ -1,11 +1,10 @@
-import Header from "./Header";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 function MainLayout({ children }) {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
-      <Header />
+      {/* Only render Navbar which contains the complete header/navigation structure */}
       <Navbar />
 
       <main className="flex-1">
@@ -16,5 +15,7 @@ function MainLayout({ children }) {
     </div>
   );
 }
+
+MainLayout.displayName = "MainLayout";
 
 export default MainLayout;

@@ -1,7 +1,20 @@
-import { Heart, Home, LogIn, ShoppingBag, ShoppingCart, User, X } from "lucide-react";
+import {
+  Heart,
+  Home,
+  ShoppingBag,
+  ShoppingCart,
+  User,
+  X,
+} from "lucide-react";
+
 import { Link } from "react-router-dom";
 
-function MobileMenu({ menuOpen, setMenuOpen }) {
+function MobileMenu({
+  menuOpen,
+  setMenuOpen,
+  setCartOpen,
+  setAccountOpen,
+}) {
   if (!menuOpen) return null;
 
   return (
@@ -13,7 +26,7 @@ function MobileMenu({ menuOpen, setMenuOpen }) {
       />
 
       {/* Drawer */}
-      <div className="fixed right-0 top-0 z-50 h-screen w-72 bg-white shadow-2xl xl:hidden">
+      <div className="fixed right-0 top-0 z-50 flex h-screen w-72 flex-col bg-white shadow-2xl xl:hidden">
 
         {/* Header */}
         <div className="flex items-center justify-between border-b p-5">
@@ -24,11 +37,15 @@ function MobileMenu({ menuOpen, setMenuOpen }) {
             </h2>
 
             <p className="text-sm text-slate-500">
-              Welcome Guest
+              Welcome to NovaKart
             </p>
           </div>
 
-          <button onClick={() => setMenuOpen(false)}>
+          <button
+            type="button"
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close menu"
+          >
             <X size={24} />
           </button>
 
@@ -37,48 +54,63 @@ function MobileMenu({ menuOpen, setMenuOpen }) {
         {/* Menu */}
         <div className="flex flex-col p-4">
 
+          {/* Home */}
           <Link
             to="/"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 hover:bg-slate-100"
+            onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-3 rounded-xl px-4 py-3 transition hover:bg-slate-100"
           >
             <Home size={20} />
             Home
           </Link>
 
+          {/* Shop */}
           <Link
             to="/shop"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 hover:bg-slate-100"
+            onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-3 rounded-xl px-4 py-3 transition hover:bg-slate-100"
           >
             <ShoppingBag size={20} />
             Shop
           </Link>
 
+          {/* Wishlist */}
           <Link
             to="/wishlist"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 hover:bg-slate-100"
+            onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-3 rounded-xl px-4 py-3 transition hover:bg-slate-100"
           >
             <Heart size={20} />
             Wishlist
           </Link>
 
-          <Link
-            to="/cart"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 hover:bg-slate-100"
+          {/* Cart */}
+          <button
+            type="button"
+            onClick={() => {
+              setMenuOpen(false);
+              setCartOpen(true);
+            }}
+            className="flex items-center gap-3 rounded-xl px-4 py-3 transition hover:bg-slate-100"
           >
             <ShoppingCart size={20} />
             Cart
-          </Link>
+          </button>
 
-          <Link
-            to="/login"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 hover:bg-slate-100"
+          {/* Account */}
+          <button
+            type="button"
+            onClick={() => {
+              setMenuOpen(false);
+              setAccountOpen(true);
+            }}
+            className="flex items-center gap-3 rounded-xl px-4 py-3 transition hover:bg-slate-100"
           >
             <User size={20} />
-            Login
-          </Link>
+            Account
+          </button>
 
         </div>
-
       </div>
     </>
   );

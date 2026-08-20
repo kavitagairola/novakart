@@ -1,6 +1,10 @@
 {
-  "dependencies": {
-    "clsx": "^2.1.1",
-    "tailwind-merge": "^3.6.0"
+  "name": "novakart",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm --prefix client run dev\" \"npm --prefix server run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
   }
 }

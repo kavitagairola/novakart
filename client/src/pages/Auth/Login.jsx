@@ -1,24 +1,45 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import AuthLayout from "../../components/auth/AuthLayout";
 import AuthInput from "../../components/auth/AuthInput";
 import PasswordInput from "../../components/auth/PasswordInput";
 import Button from "../../components/ui/Button";
 
+import api from "../../services/api";
+
 function Login() {
+  const navigate = useNavigate();
+const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    console.log({
+  try {
+    const response = await api.post("/auth/login", {
       email,
       password,
     });
-  };
 
+    const { token, user } = response.data;
+
+    // AuthContext handles user + token
+    login(user, token);
+
+    console.log("Login successful:", user);
+
+    navigate("/");
+  } catch (error) {
+    console.error("Login failed:", error);
+
+    console.error(
+      "Server message:",
+      error.response?.data?.message
+    );
+  }
+};
   return (
     <AuthLayout
       title="Welcome Back 👋"

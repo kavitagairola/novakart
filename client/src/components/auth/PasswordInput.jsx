@@ -6,6 +6,7 @@ function PasswordInput({
   placeholder,
   value,
   onChange,
+  name,
 }) {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -19,6 +20,7 @@ function PasswordInput({
       <div className="relative">
 
         <input
+        name={name}
           type={showPassword ? "text" : "password"}
           placeholder={placeholder}
           value={value}

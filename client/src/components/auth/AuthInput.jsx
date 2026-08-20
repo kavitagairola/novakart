@@ -4,6 +4,7 @@ function AuthInput({
   placeholder,
   value,
   onChange,
+  name,
 }) {
   return (
     <div className="mb-5">
@@ -13,6 +14,7 @@ function AuthInput({
       </label>
 
       <input
+        name={name}
         type={type}
         placeholder={placeholder}
         value={value}

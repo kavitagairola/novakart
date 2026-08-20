@@ -1,172 +1,89 @@
 import heroImage from "../assets/images/hero.jpg";
 
-import electronics from "../assets/images/categories/electronics.jpg";
-import fashion from "../assets/images/categories/fashion.jpg";
-import footwear from "../assets/images/categories/footwear.jpg";
-import beauty from "../assets/images/categories/beauty.jpg";
-import furniture from "../assets/images/categories/furniture.jpg";
-import grocery from "../assets/images/categories/grocery.jpg";
-import watches from "../assets/images/categories/watches.jpg";
-import accessories from "../assets/images/categories/accessories.jpg";
-
-import iphone from "../assets/images/products/iphone.jpg";
-import laptop from "../assets/images/products/laptop.jpg";
-import headphones from "../assets/images/products/headphones.jpg";
-import smartwatch from "../assets/images/products/smartwatch.jpg";
-import camera from "../assets/images/products/camera.jpg";
-import shoes from "../assets/images/products/shoes.jpg";
-import tshirt from "../assets/images/products/tshirt.jpg";
-import hoodie from "../assets/images/products/hoodie.jpg";
-import saleBanner from "../assets/images/banners/sale-banner.jpg";
-
 export const heroData = {
-  badge: "🔥 Biggest Sale of the Year",
-
-title: "Discover The Best",
-
-highlight: "Shopping Experience",
-
+  badge: "Autumn / Winter Collection 2026",
+  title: "Elevated Everyday",
+  highlight: "Dressing.",
   description:
-    "Explore premium electronics, fashion, accessories and much more with exciting offers and fast delivery.",
-
-  primaryButton: "Shop Now",
-
-  secondaryButton: "Explore",
-
+    "Discover meticulously crafted silhouettes, luxurious fluid satins, breathable linens, and modern tailoring designed for the contemporary woman.",
+  primaryButton: "Shop Collection",
+  secondaryButton: "Explore New Arrivals",
   image: heroImage,
-
   stats: [
-    {
-      number: "10K+",
-      label: "Happy Customers",
-    },
-    {
-      number: "5K+",
-      label: "Products",
-    },
-    {
-      number: "24/7",
-      label: "Support",
-    },
+    { number: "100%", label: "Sustainable Fabrics" },
+    { number: "48Hrs", label: "Express Dispatch" },
+    { number: "7-Day", label: "Hassle-Free Returns" },
   ],
 };
+
 export const categories = [
-  {
-    id: 1,
-    name: "Electronics",
-    image: electronics,
-  },
-  {
-    id: 2,
-    name: "Fashion",
-    image: fashion,
-  },
-  {
-    id: 3,
-    name: "Footwear",
-    image: footwear,
-  },
-  {
-    id: 4,
-    name: "Beauty",
-    image: beauty,
-  },
-  {
-    id: 5,
-    name: "Furniture",
-    image: furniture,
-  },
-  {
-    id: 6,
-    name: "Grocery",
-    image: grocery,
-  },
-  {
-    id: 7,
-    name: "Watches",
-    image: watches,
-  },
-  {
-    id: 8,
-    name: "Accessories",
-    image: accessories,
-  },
+  { id: 1, name: "Dresses", slug: "dresses", image: heroImage },
+  { id: 2, name: "Tops & Bodysuits", slug: "tops-bodysuits", image: heroImage },
+  { id: 3, name: "Kurtis & Ethnic", slug: "kurtis-ethnic", image: heroImage },
+  { id: 4, name: "Co-ord Sets", slug: "co-ord-sets", image: heroImage },
+  { id: 5, name: "Oversized Tees", slug: "oversized-tees", image: heroImage },
+  { id: 6, name: "Party Wear", slug: "party-wear", image: heroImage },
+  { id: 7, name: "Skirts & Bottoms", slug: "skirts-bottoms", image: heroImage },
 ];
+
+// Added featuredProducts export to resolve the import error
 export const featuredProducts = [
   {
     id: 1,
-    name: "iPhone 16 Pro",
-    category: "Electronics",
-    image: iphone,
-    price: 129999,
-    originalPrice: 139999,
+    name: "Satin Cowl Neck Midi Slip Dress",
+    category: "Dresses",
+    price: 2499,
+    originalPrice: 3499,
+    rating: 4.9,
+    reviews: 142,
+    badge: "Bestseller",
+    image: heroImage
+  },
+  {
+    id: 2,
+    name: "Tiered Cotton Voile Maxi Dress",
+    category: "Dresses",
+    price: 2999,
+    originalPrice: 3999,
     rating: 4.8,
-    reviews: 245,
-    badge: "Sale",
-  },
-  {
-    id: 2,
-    name: "Gaming Laptop",
-    category: "Electronics",
-    image: laptop,
-    price: 89999,
-    originalPrice: 99999,
-    rating: 4.7,
-    reviews: 180,
-    badge: "Hot",
-  },
-  {
-    id: 3,
-    name: "Wireless Headphones",
-    category: "Electronics",
-    image: headphones,
-    price: 7999,
-    originalPrice: 9999,
-    rating: 4.6,
-    reviews: 320,
+    reviews: 98,
     badge: "New",
-  },
-  {
-    id: 4,
-    name: "Smart Watch",
-    category: "Watches",
-    image: smartwatch,
-    price: 5999,
-    originalPrice: 7999,
-    rating: 4.5,
-    reviews: 270,
-    badge: "Sale",
-  },
-];
-export const bannerData = {
-  title: "Mega Sale Up To 50% OFF",
-  subtitle: "Discover amazing deals on electronics, fashion and accessories.",
-  buttonText: "Shop Now",
-  image: saleBanner,
-};
-export const whyChooseUs = [
-  {
-    id: 1,
-    title: "Free Shipping",
-    description: "Free delivery on orders above ₹999.",
-    icon: "🚚",
-  },
-  {
-    id: 2,
-    title: "Secure Payment",
-    description: "100% secure payment gateway.",
-    icon: "🔒",
+    image: heroImage
   },
   {
     id: 3,
-    title: "Easy Returns",
-    description: "7-day hassle-free return policy.",
-    icon: "↩️",
+    name: "Pleated Halter-Neck Evening Gown",
+    category: "Dresses",
+    price: 3899,
+    originalPrice: 4999,
+    rating: 4.9,
+    reviews: 64,
+    badge: "Exclusive",
+    image: heroImage
   },
   {
     id: 4,
-    title: "24/7 Support",
-    description: "Customer support anytime you need.",
-    icon: "🎧",
-  },
+    name: "Linen Trench Button-Down Dress",
+    category: "Dresses",
+    price: 3299,
+    originalPrice: 4299,
+    rating: 4.7,
+    reviews: 82,
+    badge: "Sale",
+    image: heroImage
+  }
 ];
+
+export const whyChooseUs = [
+  { id: 1, title: "Complimentary Shipping", description: "Enjoy free insured delivery on all orders above ₹999.", icon: "✦" },
+  { id: 2, title: "Artisanal Craftsmanship", description: "Thoughtfully sourced premium textiles with exquisite finish.", icon: "✧" },
+  { id: 3, title: "Seamless Exchanges", description: "7-day effortless doorstep pickup and exchange policy.", icon: "↩" },
+  { id: 4, title: "Styling Concierge", description: "Personalized fashion assistance available 24/7.", icon: "◆" },
+];
+
+export const bannerData = {
+  title: "The Transition Edit — Up to 40% Off",
+  subtitle: "Embrace effortless sophistication with our curated seasonal transitional wear.",
+  buttonText: "Shop The Edit",
+  image: heroImage,
+};

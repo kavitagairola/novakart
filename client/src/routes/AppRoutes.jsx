@@ -8,6 +8,12 @@ import Checkout from "../pages/Checkout/Checkout";
 import Wishlist from "../pages/Wishlist/Wishlist";
 import Register from "../pages/Auth/Register";
 import ForgotPassword from "../pages/Auth/ForgotPassword";
+import Profile from "../pages/Profile/Profile";
+import Orders from "../pages/Orders/Orders";
+import OrderDetails from "../pages/OrderDetails/OrderDetails";
+import NewArrivals from "../pages/NewArrivals/NewArrivals";
+import Deals from "../pages/Deals/Deals";
+import ProtectedRoute from "../components/auth/ProtectedRoute";
 function AppRoutes() {
   return (
     <Routes>
@@ -28,7 +34,15 @@ function AppRoutes() {
   element={<ForgotPassword />}
 />
 
+<Route element={<ProtectedRoute />}>
+  <Route path="/profile" element={<Profile />} />
+  <Route path="/orders" element={<Orders />} />
+  <Route path="/orders/:id" element={<OrderDetails />} />
+  <Route path="/checkout" element={<Checkout />} />
+</Route>
 
+<Route path="/new-arrivals" element={<NewArrivals />} />
+<Route path="/deals" element={<Deals />} />
     </Routes>
   );
 }

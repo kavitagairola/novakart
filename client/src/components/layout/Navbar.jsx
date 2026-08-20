@@ -2,186 +2,128 @@ import {
   Heart,
   Menu,
   Search,
-  ShoppingCart,
+  ShoppingBag,
   User,
+  X,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Container from "../ui/Container";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
 import MobileMenu from "./MobileMenu";
-import SearchModal from "./SearchModal";
+import MiniCartDrawer from "../offcanvas/MiniCartDrawer";
+import AccountDrawer from "../offcanvas/AccountDrawer";
 
 function Navbar() {
   const { totalItems } = useCart();
-const { wishlistItems } = useWishlist();
+  const { wishlistItems } = useWishlist();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const navLinkClass = ({ isActive }) =>
+    `text-[13px] font-medium tracking-[0.06em] transition-all duration-200 relative py-1 ${
+      isActive
+        ? "text-neutral-950 font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-neutral-950"
+        : "text-neutral-600 hover:text-neutral-950"
+    }`;
 
   return (
     <>
-     
-
-      {/* Navbar */}
-    <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur">
-  <Container>
-
-    {/* ---------------- Mobile + Tablet ---------------- */}
-    <div className="flex h-20 items-center justify-between xl:hidden">
-
-      {/* Logo */}
-      <Link
-        to="/"
-        className="shrink-0 text-2xl font-black text-slate-900 lg:text-3xl"
-      >
-        NovaKart
-      </Link>
-
-      {/* Search - Tablet Only */}
-      <div className="mx-4 hidden flex-1 md:flex">
-        <div className="flex w-full items-center rounded-full border border-gray-200 bg-slate-50 px-4 shadow-sm">
-
-          <input
-            type="text"
-            placeholder="Search products..."
-            className="w-full bg-transparent py-3 outline-none"
-          />
-
-          <Search
-            size={18}
-            className="text-gray-500"
-          />
-
-        </div>
+      <div className="bg-neutral-950 text-white text-[11px] tracking-[0.05em] py-2 text-center font-medium">
+        Free Shipping on orders above ₹999
       </div>
 
-      {/* Right Icons */}
-      <div className="flex shrink-0 items-center gap-4">
+      <nav className="sticky top-0 z-50 border-b border-neutral-200/80 bg-[#FDFBF7]/95 backdrop-blur-md">
+        <Container>
+          <div className="flex h-20 items-center justify-between">
 
+            <button
+              type="button"
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="lg:hidden p-1.5 text-neutral-800 hover:text-neutral-950"
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
 
-<button
-  onClick={() => setSearchOpen(true)}
-  className="rounded-full p-2 hover:bg-slate-100 transition"
->
-  <Search size={22} />
-</button>
-  
-  <Link
-          to="/cart"
-          className="relative"
-        >
-          <ShoppingCart size={24} />
+            {/* NovaKart Logo - Uniform Font */}
+            <Link
+              to="/"
+              className="text-2xl font-extrabold tracking-[-0.03em] text-neutral-950 uppercase"
+            >
+              NovaKart
+            </Link>
 
-          {totalItems > 0 && (
-            <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-[10px] text-white">
-              {totalItems}
-            </span>
-          )}
-        </Link>
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-8">
+              <NavLink to="/" className={navLinkClass}>Home</NavLink>
+              <NavLink to="/shop" className={navLinkClass}>Shop</NavLink>
+              <NavLink to="/shop?category=new-arrivals" className={navLinkClass}>New Arrivals</NavLink>
+              <NavLink to="/shop?category=Dresses" className={navLinkClass}>Dresses</NavLink>
+              <NavLink to="/shop?category=Kurtis+%26+Ethnic" className={navLinkClass}>Ethnic</NavLink>
+              <NavLink to="/deals" className={navLinkClass}>Deals</NavLink>
+            </nav>
 
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <Menu size={28} />
-        </button>
+            <div className="flex items-center space-x-5">
+              <button
+                type="button"
+                onClick={() => navigate('/shop')}
+                className="text-neutral-800 hover:text-neutral-950 transition"
+                aria-label="Search"
+              >
+                <Search size={20} className="stroke-[1.5]" />
+              </button>
 
-      </div>
+              <button
+                type="button"
+                onClick={() => setAccountOpen(true)}
+                className="hidden sm:block text-neutral-800 hover:text-neutral-950 transition"
+                aria-label="Account"
+              >
+                <User size={20} className="stroke-[1.5]" />
+              </button>
 
-    </div>
+              <Link
+                to="/wishlist"
+                className="relative text-neutral-800 hover:text-neutral-950 transition"
+                aria-label="Wishlist"
+              >
+                <Heart size={20} className="stroke-[1.5]" />
+                {wishlistItems.length > 0 && (
+                  <span className="absolute -top-1.5 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-neutral-950 text-[10px] font-bold text-white">
+                    {wishlistItems.length}
+                  </span>
+                )}
+              </Link>
 
-    {/* ---------------- Desktop ---------------- */}
-    <div className="hidden h-20 items-center justify-between xl:flex">
+              <button
+                type="button"
+                onClick={() => setCartOpen(true)}
+                className="relative text-neutral-800 hover:text-neutral-950 transition"
+                aria-label="Shopping Bag"
+              >
+                <ShoppingBag size={20} className="stroke-[1.5]" />
+                {totalItems > 0 && (
+                  <span className="absolute -top-1.5 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-neutral-950 text-[10px] font-bold text-white">
+                    {totalItems}
+                  </span>
+                )}
+              </button>
+            </div>
 
-      {/* Logo */}
- <Link
-        to="/"
-        className="text-4xl font-black text-slate-900"
-      >
-        NovaKart
-      </Link>
+          </div>
+        </Container>
+      </nav>
 
-      {/* Navigation */}
-     <div className="flex items-center gap-6 text-[15px] font-medium text-gray-600">
-
-        <Link to="/">Home</Link>
-
-        <Link to="/shop">Shop</Link>
-
-        <Link to="/about">About</Link>
-
-        <Link to="/contact">Contact</Link>
-
-      </div>
-
-      {/* Search */}
-      <div className="w-[320px] xl:w-[420px]">
-
-        <div className="flex items-center rounded-full border border-gray-200 bg-slate-50 px-4 shadow-sm">
-
-          <input
-            type="text"
-            placeholder="Search products..."
-            className="w-full bg-transparent py-3 outline-none"
-          />
-
-          <Search
-            size={20}
-            className="text-gray-500"
-          />
-
-        </div>
-
-      </div>
-
-      {/* Icons */}
-      <div className="flex items-center gap-4">
-
-        <Link to="/login">
-          <User size={22} />
-        </Link>
-<Link
-  to="/wishlist"
-  className="relative"
->
-  <Heart size={22} />
-
-  {wishlistItems.length > 0 && (
-    <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-pink-600 text-[10px] text-white">
-      {wishlistItems.length}
-    </span>
-  )}
-</Link>
-
-        <Link
-          to="/cart"
-          className="relative"
-        >
-          <ShoppingCart size={22} />
-
-          {totalItems > 0 && (
-            <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-[10px] text-white">
-              {totalItems}
-            </span>
-          )}
-        </Link>
-
-      </div>
-
-    </div>
-
-  </Container>
-  <MobileMenu
-  menuOpen={menuOpen}
-  setMenuOpen={setMenuOpen}
-/>
-<SearchModal
-  open={searchOpen}
-  setOpen={setSearchOpen}
-/>
-</nav>
+      <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} setCartOpen={setCartOpen} setAccountOpen={setAccountOpen} />
+      <AccountDrawer open={accountOpen} onClose={() => setAccountOpen(false)} />
+      <MiniCartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }
 
+Navbar.displayName = "Navbar";
 export default Navbar;

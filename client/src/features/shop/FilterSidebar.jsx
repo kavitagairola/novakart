@@ -21,7 +21,7 @@ function FilterSidebar({
 
       {/* Categories */}
       <div className="mb-8">
-        <h3 className="mb-4 text-lg font-semibold text-slate-800">
+        <h3 className="mb-4 text-base font-semibold text-slate-800">
   Categories
 </h3>
 

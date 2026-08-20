@@ -1,7 +1,7 @@
 import { Search, X } from "lucide-react";
 import { products } from "../../constants/productData";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 function SearchModal({
   open,
   setOpen,
@@ -17,6 +17,21 @@ function SearchModal({
     .toLowerCase()
     .includes(searchTerm.toLowerCase())
 );
+const inputRef = useRef(null);
+
+useEffect(() => {
+  const handleKeyDown = (e) => {
+    if (e.key === "Escape") {
+      setOpen(false);
+    }
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+  };
+}, [setOpen]);
 
   return (
     <>
@@ -107,7 +122,7 @@ function SearchModal({
 
   )}
 
-</div>
+</div>  
 
       </div>
     </>

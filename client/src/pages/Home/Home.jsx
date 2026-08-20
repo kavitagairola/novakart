@@ -1,22 +1,29 @@
+// src/pages/Home/Home.jsx
 import MainLayout from "../../components/layout/MainLayout";
-
-import HeroSection from "../../features/home/HeroSection";
+import HeroSlider from "../../features/home/HeroSlider";
 import CategorySection from "../../features/home/CategorySection";
 import FeaturedProducts from "../../features/home/FeaturedProducts";
 import FlashSale from "../../features/home/FlashSale";
-import WhyChooseUs from "../../features/home/WhyChooseUs";
+import NovaKartEdit from "../../features/home/NovaKartEdit";
+import ShopTheLook from "../../features/home/ShopTheLook"; // <- New Shop The Look Import
+import ShopByOccasion from "../../features/home/ShopByOccasion";
+import CompactTrustStrip from "../../features/home/CompactTrustStrip";
 import BannerSection from "../../features/home/BannerSection";
 import TrustBar from "../../features/home/TrustBar";
+
 function Home() {
   return (
     <MainLayout>
-      <HeroSection />
+      <HeroSlider />
       <CategorySection />
       <FeaturedProducts />
       <FlashSale />
-       <BannerSection />
-        <WhyChooseUs />
-        <TrustBar/>
+      <NovaKartEdit />
+      <ShopTheLook /> 
+      <ShopByOccasion />
+      <CompactTrustStrip />
+      <BannerSection />
+      <TrustBar />
     </MainLayout>
   );
 }
