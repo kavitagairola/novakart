@@ -1,3 +1,4 @@
+// src/components/layout/Navbar.jsx
 import {
   Heart,
   Menu,
@@ -6,7 +7,7 @@ import {
   User,
   X,
 } from "lucide-react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import Container from "../ui/Container";
 import { useCart } from "../../context/CartContext";
@@ -22,8 +23,22 @@ function Navbar() {
   const [accountOpen, setAccountOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const navLinkClass = ({ isActive }) =>
+  const queryParams = new URLSearchParams(location.search);
+  const currentCategory = queryParams.get("category");
+  const currentPath = location.pathname;
+
+  // Strict Active Check Helpers
+  const isHomeActive = currentPath === "/";
+  const isShopActive = currentPath === "/shop" && !currentCategory;
+  const isNewArrivalsActive = currentPath === "/shop" && currentCategory === "new-arrivals";
+  const isDressesActive = currentPath === "/shop" && currentCategory === "Dresses";
+  const isEthnicActive = currentPath === "/shop" && currentCategory === "Kurtis & Ethnic";
+  const isDealsActive = currentPath === "/deals" || currentPath === "/deal";
+
+  // Base and active styles preserving exact original CSS classes
+  const getNavLinkClass = (isActive) =>
     `text-[13px] font-medium tracking-[0.06em] transition-all duration-200 relative py-1 ${
       isActive
         ? "text-neutral-950 font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-neutral-950"
@@ -57,14 +72,14 @@ function Navbar() {
               NovaKart
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation with Strict Active State Logic */}
             <nav className="hidden lg:flex items-center space-x-8">
-              <NavLink to="/" className={navLinkClass}>Home</NavLink>
-              <NavLink to="/shop" className={navLinkClass}>Shop</NavLink>
-              <NavLink to="/shop?category=new-arrivals" className={navLinkClass}>New Arrivals</NavLink>
-              <NavLink to="/shop?category=Dresses" className={navLinkClass}>Dresses</NavLink>
-              <NavLink to="/shop?category=Kurtis+%26+Ethnic" className={navLinkClass}>Ethnic</NavLink>
-              <NavLink to="/deals" className={navLinkClass}>Deals</NavLink>
+              <Link to="/" className={getNavLinkClass(isHomeActive)}>Home</Link>
+              <Link to="/shop" className={getNavLinkClass(isShopActive)}>Shop</Link>
+              <Link to="/shop?category=new-arrivals" className={getNavLinkClass(isNewArrivalsActive)}>New Arrivals</Link>
+              <Link to="/shop?category=Dresses" className={getNavLinkClass(isDressesActive)}>Dresses</Link>
+              <Link to="/shop?category=Kurtis+%26+Ethnic" className={getNavLinkClass(isEthnicActive)}>Ethnic</Link>
+              <Link to="/deals" className={getNavLinkClass(isDealsActive)}>Deals</Link>
             </nav>
 
             <div className="flex items-center space-x-5">

@@ -36,15 +36,15 @@ function CategorySection() {
       description: "Effortless resort and lounge pairings",
       image: categoryImages["Co-ord Sets"],
       span: "col-span-12 sm:col-span-6 lg:col-span-4 h-[380px]",
-      cropStyle: "object-center"
+      cropStyle: "object-container"
     },
     {
-      name: "Bottomwear",
-      subtitle: "Tailored Precision",
-      description: "High-waisted linen and crepe trousers",
-      image: categoryImages["Bottomwear"],
+      name: "Oversized Tees",
+      subtitle: "Relaxed Streetwear",
+      description: "Ultra-comfortable drop-shoulder casual silhouettes",
+      image: "/src/assets/images/fashion/products/tees/product-02-01.jpg",
       span: "col-span-12 sm:col-span-6 lg:col-span-4 h-[380px]",
-      cropStyle: "object-bottom"
+      cropStyle: "object-container"
     },
   ];
 
