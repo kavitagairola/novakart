@@ -78,7 +78,8 @@ function CategorySection() {
               <img
                 src={cat.image}
                 alt={cat.name}
-                className={`w-full h-full object-cover ${cat.cropStyle} transform group-hover:scale-104 transition-transform duration-700 ease-out`}
+                loading="lazy"
+                className={`w-full h-full object-cover ${cat.cropStyle} transform group-hover:scale-105 transition-transform duration-700 ease-out`}
               />
 
               {/* Subtle Luxury Gradient Overlay */}

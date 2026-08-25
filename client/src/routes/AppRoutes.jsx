@@ -16,11 +16,12 @@ import Deals from "../pages/Deals/Deals";
 import ProtectedRoute from "../components/auth/ProtectedRoute";
 function AppRoutes() {
   return (
+    
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/shop" element={<Shop />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/product/:id" element={<ProductDetails />}/>
+    <Route path="/" element={<Home />} />
+    <Route path="/shop" element={<Shop />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/product/:id" element={<ProductDetails />}/>
     <Route path="/cart" element={<Cart />} />
     <Route path="/checkout" element={<Checkout />} />
     <Route path="/wishlist" element={<Wishlist />}/>

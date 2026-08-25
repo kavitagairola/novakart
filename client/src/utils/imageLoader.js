@@ -1,3 +1,4 @@
+// src/utils/imageLoader.js
 import dressesImage from "../assets/images/fashion/categories/dresses.jpg";
 import topsImage from "../assets/images/fashion/categories/tops.jpg";
 import kurtisImage from "../assets/images/fashion/categories/kurtis.jpg";
@@ -15,7 +16,6 @@ const productImages = import.meta.glob(
 
 export const getProductImageUrl = (category, filename) => {
   if (!filename) return "";
-
   const categoryMap = {
     "Dresses": "dresses",
     "Tops & Bodysuits": "tops",
@@ -24,12 +24,10 @@ export const getProductImageUrl = (category, filename) => {
     "Oversized Tees": "tees",
     "Party Wear": "partywear",
     "Skirts & Bottoms": "bottoms",
+    "Outerwear": "products"
   };
-
   const folderSlug = categoryMap[category] || "dresses";
-
   const path = `../assets/images/fashion/products/${folderSlug}/${filename}`;
-
   return productImages[path] || "";
 };
 
@@ -38,7 +36,7 @@ export const categoryImages = {
   "Tops & Bodysuits": topsImage,
   "Kurtis & Ethnic": kurtisImage,
   "Co-ord Sets": coordsImage,
-  Bottomwear: bottomsImage,
+  "Skirts & Bottoms": bottomsImage,
   "New Arrivals": heroBanner,
 };
 
